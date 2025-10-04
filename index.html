@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Snap</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrq_4wbEccDpZ6E7BI5fo1bT5W7i_o_tRXsg&s">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel:wght@400..900&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Croissant+One&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Forum&family=Hind:wght@300;400;500;600;700&family=Iceland&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kings&family=Lexend+Deca:wght@100..900&family=Lexend:wght@100..900&family=Nova+Square&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Princess+Sofia&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Redressed&family=Roboto+Slab:wght@100..900&family=Tangerine:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Remixicon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+    integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="script.js" defer></script>
+</head>
+
+<body style="font-family: 'Poppins', sans-serif;" class="selection:text-black selection:bg-amber-200">
+
+  <div class="flex justify-center items-center h-screen bg-[url(assets/bg.jpg)] bg-cover bg-center">
+    <div class="border-3 border-gray-200 p-5 rounded-xl backdrop-blur-3xl shadow-sm shadow-gray-200 m-3">
+      <h1 class="text-3xl font-medium text-center m-2" style="font-family: 'Cinzel', serif;">Weather Snap <i class="fa-regular fa-cloud"></i></h1>
+      <div class="flex items-center gap-2 w-full mt-4">
+        <input type="text" placeholder="Enter City Name" id="searchInput"
+          class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-full bg-gray-200/40 focus:outline-none">
+        <button  class="bg-gray-200 px-4 py-2 rounded-full cursor-pointer flex items-center justify-center" onclick="search()">
+          <i class="ri-search-line"></i>
+        </button>
+      </div>
+      <div class="flex justify-between items-center m-2 mt-5 border-b border-gray-200 pb-2">
+        <div class="flex gap-2 justify-center items-center">
+          <i class="ri-map-pin-2-line text-xl"></i>
+          <p id="cityName" class="font-medium">City Name</p>
+        </div>
+
+        <p id="date" class="font-medium">Date</p>
+      </div>
+      <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+        <img src="assets/weather/clouds.svg" alt="" id="weatherIcon" class="weather-icon">
+        <div class="flex flex-col justify-end items-end">
+          <h1 class="text-3xl font-semibold" id="temp">° C</h1>
+          <h2 id="description">Description</h2>
+        </div>
+      </div>
+      <div class="m-4 flex justify-between gap-12">
+        <div class="flex justify-center items-center gap-4">
+          <img src="images/humidity.png" alt="" class="h-6 w-6 mb-3">
+          <div>
+
+            <h3 class="font-medium">Humidity</h3>
+            <p id="humidity">%</p>
+          </div>
+
+          </h3>
+        </div>
+        <div class="flex justify-center items-center gap-4">
+          <img src="images/wind.png" alt="" class="h-6 w-6 mb-3">
+          <div>
+
+            <h3 class="font-medium">Wind Speed</h3>
+            <p id="wind">m/s</p>
+          </div>
+
+
+          </h3>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</body>
+
+
+
+</html>
