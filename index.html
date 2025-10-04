@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel:wght@400..900&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Croissant+One&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Forum&family=Hind:wght@300;400;500;600;700&family=Iceland&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kings&family=Lexend+Deca:wght@100..900&family=Lexend:wght@100..900&family=Nova+Square&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Princess+Sofia&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Redressed&family=Roboto+Slab:wght@100..900&family=Tangerine:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Tailwind -->
@@ -22,74 +22,76 @@
 
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" />
 
   <!-- Remixicon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
-    integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" />
 
   <script src="script.js" defer></script>
 </head>
 
 <body style="font-family: 'Poppins', sans-serif;" class="selection:text-black selection:bg-amber-200">
 
-  <div class="flex justify-center items-center h-screen bg-[url(assets/bg.jpg)] bg-cover bg-center">
-    <div class="border-3 border-gray-200 p-5 rounded-xl backdrop-blur-3xl shadow-sm shadow-gray-200 m-3">
-      <h1 class="text-3xl font-medium text-center m-2" style="font-family: 'Cinzel', serif;">Weather Snap <i class="fa-regular fa-cloud"></i></h1>
-      <div class="flex items-center gap-2 w-full mt-4">
+  <div class="flex justify-center items-center min-h-screen bg-[url(assets/bg.jpg)] bg-cover bg-center px-4">
+    <div
+      class="w-full max-w-md border border-gray-200 p-5 rounded-xl backdrop-blur-3xl shadow-md shadow-gray-300 sm:p-6">
+      
+      <!-- Title -->
+      <h1 class="text-2xl sm:text-3xl font-medium text-center mb-4" style="font-family: 'Cinzel', serif;">
+        Weather Snap <i class="fa-regular fa-cloud"></i>
+      </h1>
+
+      <!-- Search -->
+      <div class="flex items-center gap-2 w-full">
         <input type="text" placeholder="Enter City Name" id="searchInput"
-          class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-full bg-gray-200/40 focus:outline-none">
-        <button  class="bg-gray-200 px-4 py-2 rounded-full cursor-pointer flex items-center justify-center" onclick="search()">
-          <i class="ri-search-line"></i>
+          class="flex-1 px-4 py-2 border border-gray-200 rounded-full bg-gray-200/40 focus:outline-none text-sm sm:text-base">
+        <button
+          class="bg-gray-200 px-3 sm:px-4 py-2 rounded-full cursor-pointer flex items-center justify-center"
+          onclick="search()">
+          <i class="ri-search-line text-lg sm:text-xl"></i>
         </button>
       </div>
-      <div class="flex justify-between items-center m-2 mt-5 border-b border-gray-200 pb-2">
-        <div class="flex gap-2 justify-center items-center">
+
+      <!-- City + Date -->
+      <div class="flex flex-col sm:flex-row justify-between items-center mt-5 border-b border-gray-200 pb-2 gap-2">
+        <div class="flex gap-2 items-center">
           <i class="ri-map-pin-2-line text-xl"></i>
-          <p id="cityName" class="font-medium">City Name</p>
+          <p id="cityName" class="font-medium text-sm sm:text-base">City Name</p>
         </div>
+        <p id="date" class="font-medium text-sm sm:text-base">Date</p>
+      </div>
 
-        <p id="date" class="font-medium">Date</p>
-      </div>
-      <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-        <img src="assets/weather/clouds.svg" alt="" id="weatherIcon" class="weather-icon">
-        <div class="flex flex-col justify-end items-end">
-          <h1 class="text-3xl font-semibold" id="temp">° C</h1>
-          <h2 id="description">Description</h2>
+      <!-- Weather Display -->
+      <div class="flex flex-col sm:flex-row justify-between items-center border-b border-gray-200 pb-3 mt-3 gap-4">
+        <img src="assets/weather/clouds.svg" alt="" id="weatherIcon" class="w-20 h-20 sm:w-24 sm:h-24">
+        <div class="flex flex-col justify-end items-center sm:items-end">
+          <h1 class="text-3xl sm:text-4xl font-semibold" id="temp">° C</h1>
+          <h2 id="description" class="text-sm sm:text-base">Description</h2>
         </div>
       </div>
-      <div class="m-4 flex justify-between gap-12">
-        <div class="flex justify-center items-center gap-4">
-          <img src="images/humidity.png" alt="" class="h-6 w-6 mb-3">
+
+      <!-- Humidity + Wind -->
+      <div class="mt-4 flex flex-col sm:flex-row justify-between gap-6 sm:gap-12">
+        <div class="flex items-center gap-3">
+          <img src="images/humidity.png" alt="" class="h-6 w-6 sm:h-7 sm:w-7">
           <div>
-
-            <h3 class="font-medium">Humidity</h3>
-            <p id="humidity">%</p>
+            <h3 class="font-medium text-sm sm:text-base">Humidity</h3>
+            <p id="humidity" class="text-sm sm:text-base">%</p>
           </div>
-
-          </h3>
         </div>
-        <div class="flex justify-center items-center gap-4">
-          <img src="images/wind.png" alt="" class="h-6 w-6 mb-3">
+
+        <div class="flex items-center gap-3">
+          <img src="images/wind.png" alt="" class="h-6 w-6 sm:h-7 sm:w-7">
           <div>
-
-            <h3 class="font-medium">Wind Speed</h3>
-            <p id="wind">m/s</p>
+            <h3 class="font-medium text-sm sm:text-base">Wind Speed</h3>
+            <p id="wind" class="text-sm sm:text-base">m/s</p>
           </div>
-
-
-          </h3>
         </div>
       </div>
-
 
     </div>
   </div>
 
 </body>
-
-
-
 </html>
