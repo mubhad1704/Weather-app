@@ -35,16 +35,20 @@ function getWeatherIcon(id) {
     if(id <= 804) return 'clouds.svg'
 }
 
-function getCurrentDate(){
-    const currentDate = new Date()
-    const options = {
-        weekday: 'short',
-        day: '2-digit',
-        month: 'short'
-    }
-    return currentDate.toLocaleDateString('en-GB', options)
+// Set current date
+function setDate() {
+  const dateElement = document.getElementById("date");
+  const today = new Date();
+
+  // Format like: Saturday, Oct 5, 2025
+  const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+  const formattedDate = today.toLocaleDateString('en-US', options);
+
+  dateElement.textContent = formattedDate;
 }
 
+// Run when page loads
+window.onload = setDate;
 
 async function updateWeather(city) {
     const weatherData = await getFetchData('weather', city)
@@ -62,7 +66,7 @@ async function updateWeather(city) {
     } = weatherData
 
     const cityName = document.getElementById('cityName')
-    const date = document.getElementById('date')
+    
     const temperature = document.getElementById('temp')
     const description = document.getElementById('description')
     const humi = document.getElementById('humidity')
@@ -76,7 +80,7 @@ async function updateWeather(city) {
     wind.textContent = speed + ' m/s'
     icon.src = `assets/weather/${getWeatherIcon(id)}`
 
-    date.textContent = getCurrentDate()
+    
 }
 
 
