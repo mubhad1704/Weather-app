@@ -36,18 +36,18 @@
   <div class="flex justify-center items-center min-h-screen bg-[url(assets/bg.jpg)] bg-cover bg-center px-4">
     <div
       class="w-full max-w-md border border-gray-200 p-5 rounded-xl backdrop-blur-3xl shadow-md shadow-gray-300 sm:p-6">
-      
+
       <!-- Title -->
       <h1 class="text-2xl sm:text-3xl font-medium text-center mb-4" style="font-family: 'Cinzel', serif;">
         Weather Snap <i class="fa-regular fa-cloud"></i>
       </h1>
 
       <!-- Search -->
-      <div class="flex items-center gap-2 w-full">
+      <div class="flex items-center gap-2 w-full mt-4">
         <input type="text" placeholder="Enter City Name" id="searchInput"
-          class="flex-1 px-4 py-2 border border-gray-200 rounded-full bg-gray-200/40 focus:outline-none text-sm sm:text-base">
+          class="flex-grow min-w-0 px-4 py-2 border border-gray-200 rounded-full bg-gray-200/40 focus:outline-none text-sm sm:text-base">
         <button
-          class="bg-gray-200 px-3 sm:px-4 py-2 rounded-full cursor-pointer flex items-center justify-center"
+          class="shrink-0 bg-gray-200 px-3 sm:px-4 py-2 rounded-full cursor-pointer flex items-center justify-center"
           onclick="search()">
           <i class="ri-search-line text-lg sm:text-xl"></i>
         </button>
@@ -94,4 +94,5 @@
   </div>
 
 </body>
+
 </html>
